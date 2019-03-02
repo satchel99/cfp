@@ -1,0 +1,16 @@
+CLICK TO GET NUMBER
+<div id = "view"></div>
+<input type="button" onclick="getNumber(this.form)" value="get number" name="button">
+<script src="js/jquery.min.js"></script>
+
+<script>
+function getNumber (form) {
+    $.ajax("getnumber.php", {
+        type: 'POST',
+        success: function(response) {
+         document.getElementById("view").innerHTML = response;
+    }
+    });
+    }
+</script>
+	

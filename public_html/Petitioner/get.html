@@ -1,0 +1,29 @@
+
+<form action="" name="status">
+    <label>Select your subject to see available tutors.</label> 
+    <br>
+    <input type="number" name="quantity" min="1" max="100">
+    <br>
+    <span>
+        <input type="button" onclick="searchNumbers(this.form)" value="Search" name="button">
+    </span>
+</form>
+<br>
+<div id = "view">hi</div>
+<script src="js/jquery.min.js"></script>
+
+<script>
+
+function searchNumbers (form) {
+    
+	var numbers = form.quantity.value;
+	   $.ajax("getnum.php", {
+        data: { num : numbers},
+        type: 'POST',
+        success: function(response) {
+         document.getElementById("view").innerHTML = response;
+    }
+    });
+    }
+</script>
+	

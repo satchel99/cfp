@@ -1,0 +1,264 @@
+<html>
+  <head>
+    <style>
+      .chat-table-names {
+        display: flex;
+        place-content: center;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      .field {
+        display: flex;
+        place-content: center;
+      }
+
+      .field > label,
+      .field > input {
+        padding-top: 10px;
+        padding-right: 10px;
+        font-weight: bold;
+      }
+
+      .field > input {
+        width: 100%;
+      }
+
+      .field-group {
+        margin-top: 10px;
+        display: inline-flex;
+      }
+
+      .field-group > input {
+        margin-bottom: 10px;
+        height: 30px;
+		margin-right: 10px;
+      }
+
+      .form {
+        background: beige;
+        border: 1px black solid;
+        margin-top: 5%;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+		padding: 20px;
+      }
+      button {
+        border: none;
+
+        text-decoration: none;
+        padding-top: 0;
+        cursor: pointer;
+        height: 30px;
+        width: 60px;
+        border-radius: 50%;
+      }
+
+	  textarea:disabled {
+		width: 50%;
+		margin-left: auto;
+		margin-right: auto;
+	  }
+
+	  textarea {
+		  width: 580px;
+		  height: 250px;
+	  }
+    </style>
+            <script src="jquery.min.js"></script>
+    <script type="application/javascript" language="javascript">
+      var timer = null;
+      var listen = "";
+      function login() {
+        var xReq = new XMLHttpRequest();
+        var username = document.getElementById("uName").value;
+        var password = document.getElementById("uPass").value;
+
+        xReq.onreadystatechange = function() {
+          if (xReq.readyState == 4 && xReq.status == 200) {
+            var result = JSON.parse(xReq.responseText);
+            if (result.status == "User Logged In") {
+              document.getElementById("uName").value = result.uName;
+              documemt.getElementById("uPass").value = result.uPass;
+              document.getElementById("aStat").style.color = "green";
+              document.getElementById("aStat").innerHTML =
+                "User Authenticated!";
+              document.getElementById("chat").value = result.content;
+            } else {
+              document.getElementById("aStat").style.color = "red";
+              document.getElementById("aStat").innerHTML =
+                "Unable to authenticate user!";
+            }
+          }
+        };
+      }
+
+      function nameList() {
+        var xReq = new XMLHttpRequest();
+        xReq.onreadystatechange = function() {
+          if (xReq.readyState == 4 && xReq.status == 200) {
+            var result = JSON.parse(xReq.rText);
+            var users = result.name;
+            for (var u = 0; u < users.length; u++) {
+              document.getElementById("cList").innerHTML += users[u] + "<br>";
+            }
+          }
+        };
+        xReq.open("GET", "main.php?active=getUsers", true);
+        xReq.send();
+      }
+
+      function upListen() {
+        listen = document.getElementById("cName").value;
+        timer = setInterval(function() {
+          upContent();
+        }, 1000);
+      }
+
+      function upContent() {
+        var xReq = new XMLHttpRequest();
+        xReq.onreadystatechange = function() {
+          if (xReq.readyState == 4 && xReq.status == 200) {
+            var result = JSON.parse(xReq.rText);
+            document.getElementById("listen").value = result.content;
+          }
+        };
+        xReq.open("GET", "main.php?active=getListen&listenTo=" + listen, true);
+        xReq.send();
+      }
+
+      function update() {
+        var xReq = new XMLHttpRequest();
+        var content = document.getElementById("chat").value;
+        var username = document.getElementById("uName").value;
+        xReq.open(
+          "GET",
+          "main.php?active=update&uName=" + username + "&content=" + content,
+          true
+        );
+        xReq.send();
+      }
+      
+      function login(form) {
+    
+        var username = form.username.value;
+        var password = form.password.value;
+        console.log(username);
+        console.log(password)
+    $.ajax("loginBack.php", {
+        data: { username : username,
+                password : password
+              },
+        type: 'POST',
+        success: function(response) {
+            
+            console.log(response);
+            alert(response);
+         
+            
+    }
+    });
+    
+    
+
+      }
+      
+      function writeChat(form) {
+    
+        var message = form.message.value;
+        console.log(message);
+        console.log("Writing Chat");
+    $.ajax("writeChat.php", {
+        data: { message : message,
+              },
+        type: 'POST',
+        success: function(response) {
+            
+            console.log(response);
+	    alert(response);         
+            
+    }
+    });
+    
+    
+
+      }
+      
+      
+      function getChat(form) {
+    
+        var username = form.usernameB.value;
+        console.log(username);
+        console.log("Getting Chat");
+    $.ajax("getChat.php", {
+        data: { username : username,
+              },
+        type: 'POST',
+        success: function(response) {
+            
+            console.log(response);
+	    document.getElementById("chatcontent").innerHTML = response;         
+            
+    }
+    });
+    
+    
+
+      }
+      
+      
+      
+      
+    </script>
+  </head>
+
+  <div class="chat-table-names">
+    <table>
+    </table>
+  </div>
+  <div class="form">
+    <div class="field">
+      <label>ENTER YOUR NAME AND PASSWORD</label>
+      <form><div class="field-group"><input name = "username" type="text" /> <input type="password"  name = "password" type="text" /> <input type="button" onclick="login(this.form)" value="Login" name="button"></div><form>
+    </div>
+    <div class="field">
+      <label>CONTENT TRANSMITTED AS TYPED</label>
+      <div class="field-group">
+      <form>
+      <textarea name = "message"></textarea>
+      <input type="button" onclick="writeChat(this.form)" value="Send Message" name="button">
+      </form>
+      </div>
+    </div>
+  </div>
+  <div class="form">
+    <div class="field">
+      <label>ENTER VALID NAME</label>
+      <div class="field-group">
+        <form><input type="text" name = "usernameB" />
+        <input type="button" onclick="getChat(this.form)" value="Get Chat" name="button">
+        <form>
+      </div>
+    </div>
+    <div class="field">
+      <div id = "chatcontent" class="field-group">
+        <textarea disabled2></textarea>
+      </div>
+    </div>
+  </div>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<?php require 'connect.php';?>
+
+<head>
+		<title>Secure Electronic Voting</title>
+		<meta charset= "utf-8">
+		<link href="index1.css" rel="stylesheet">
+</head>
+	
+<body>
+		<div id="wrapper">
+		<header>
+		<h1>Secure Electronic Voting</h1>
+		</header>
+<main>
+<br>
+	<h2>Log In</h2>
+	<form method="post" action="formHandler.php">
+		<label for="voterid">*VoterID:</label>
+		<input type="text" id ="voterid" name="voterid" required="required"><br><br>
+		<label for="password">*Password:</label>
+		<input type="text" id ="password" name="password" required="required"><br><br>
+		<input type="submit" value="Submit">
+	</form> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</main>
+</div>
+</body>
+</html>

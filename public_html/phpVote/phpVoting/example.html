@@ -1,0 +1,32 @@
+<?php
+$servername = "localhost";
+// Create connection
+$dbconnect = mysql_connect("localhost", "voting", "voting");
+if (! $dbconnect)
+{
+  echo "<P>Database not available</p>";
+}
+mysql_select_db("voting_db");
+
+$voterid = $_POST["voterid"];
+$password = $_POST["password"];
+
+//sql query:
+$SQLString1 = "select * from register where voterid=$voterid";
+
+$result = mysql_query($SQLString1, $dbconnect);
+if(!$result) {
+    die("Database query failed: " . mysql_error());
+}
+
+$num_rows = mysql_num_rows($result);
+
+if(($num_rows < 1)) {
+	echo "no match found";
+	header('Location: signup.php');
+} else {
+	echo "a match found";
+	header('Location: ballot.php');
+}
+
+?>

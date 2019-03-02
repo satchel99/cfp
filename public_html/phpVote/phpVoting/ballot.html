@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<?php require 'connect.php';?>
+
+<head>
+		<title>Secure Electronic Voting</title>
+		<meta charset= "utf-8">
+		<link href="index1.css" rel="stylesheet">
+</head>
+	
+<body>
+		<div id="wrapper">
+		<header>
+		<h1>Secure Electronic Voting</h1>
+		</header>
+<main>
+<br>
+	<h2>Log In</h2>
+	<form method="post" action="vote.php">
+		 <!-- <label for="VoterID"><b>VoterID</b></label> -->
+
+			<input type="checkbox" name="vote" value="President1">Candidate1
+			<br><br>
+			<input type="checkbox" name="vote" value="President2">Candidate2
+			<br><br>
+			<button type="submit" name="submit" value="voting">Submit</button>
+	</form> 
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</main>
+</div>
+</body>
+</html>

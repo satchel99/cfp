@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="index, follow"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content=""/>
+    <title>Petition for Pramilla | Home </title>
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/meanmenu.css" media="all"/>
+    <link rel="stylesheet" href="css/literallycanvas.css"/>
+    <link rel="stylesheet" href="css/dataTables.bootstrap.css"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon_60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon_76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon_120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon_152x152.png">
+
+    <!-- Owl Carousel Assets -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+
+    <!-- Awesome Fonts -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .user-rating {
+            direction: rtl;
+            font-size: 20px;
+            unicode-bidi: bidi-override;
+            /* padding: 10px 30px;*/
+            /*display: inline-block;*/
+        }
+
+        .user-rating input {
+            opacity: 0;
+            position: relative;
+            left: -15px;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .user-rating span.star:before {
+            color: #777777;
+            content: "ï€†";
+            /*padding-right: 5px;*/
+        }
+
+        .user-rating span.star {
+            display: inline-block;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            position: relative;
+            z-index: 1;
+        }
+
+        .user-rating span {
+            margin-left: -15px;
+        }
+
+        .user-rating span.star:before {
+            color: #777777;
+            content: "\f006";
+            /*padding-right: 5px;*/
+        }
+
+        .user-rating input:hover + span.star:before, .user-rating input:hover + span.star ~ span.star:before, .user-rating input:checked + span.star:before, .user-rating input:checked + span.star ~ span.star:before {
+            color: #ffd100;
+            content: "\f005";
+        }
+
+        .selected-rating {
+            color: #ffd100;
+            font-weight: bold;
+            /* font-size: 3em;*/
+        }
+    </style>
+</head>
+
+<body>
+<!-- ===== Start Header ===== -->
+<header class="header-three">
+    <div class="container">
+        <div class="row">
+            <!-- Logo & Logout -->
+            <div class="logo-menu">
+                <div class="row">
+                    <!-- Logo -->
+                    <div class="col-md-3 col-sm-4 col-xs-6 display-full">
+                        <div class="logo">
+                            <img src="images/logo.png" alt="Study Swap" title="Study Swap"/>
+                        </div>
+                    </div>
+                    <!-- End Logo -->
+
+                    <!-- Logout -->
+                    <div class="col-md-9 col-sm-8 col-xs-6 display-full">
+                        <div class="logout-btn">
+                            <a href="javascript:void(0)" id="profile">Profile </a>
+                            <a href="javascript:void(0)" id="schedule">Schedule A Session </a>
+                            <a href="index.html">Logout <i class="fa fa-sign-out"></i></a>
+                        </div>
+                    </div>
+                    <!-- End Logout -->
+                </div>
+            </div>
+            <!-- End Logo & Logout -->
+        </div>
+    </div>
+</header>
+<!-- ===== End Header ===== -->
+
+<!-- ===== Start Inner Banner ===== -->
+<section class="inner-banner">
+    <!-- Overlay -->
+    <span class="overlay"></span>
+    <!-- End Overlay -->
+    <div class="container">
+        <!-- Banner Text -->
+        <div class="banner-text">
+            <h1>Hello,</h1>
+            <h2>
+                <div id="username" class="username"> User name</div>
+            </h2>
+        </div>
+        <!-- End Banner Text -->
+    </div>
+</section>
+<!-- ===== End Inner Banner ===== -->
+<!-- ===== Start Points Bar ===== -->
+<section class="points-bar">
+    <div class="container">
+        <!-- Points Box -->
+        <div class="points-box">
+            <h1>You Have <span id="points">0</span> Points</h1>
+            <input type="button" class="btn btn-lg btn-primary" value="Buy Points" id="bypoints"
+                   style="font-size: x-large">
+        </div>
+
+        <!-- End Points Box -->
+    </div>
+</section>
+<!-- ===== End Points Bar ===== -->
+<center>
+    <section class="available-tutors" id="bydetail" style="display: none;">
+
+    </section>
+</center>
+
+
+<div id="showdetail">
+    <!-- ===== Start Tutor Search ===== -->
+    <section class="tutor-search">
+        <div class="container">
+            <div class="row">
+                <!-- Your Status -->
+                <div class="col-md-6">
+                    <div class="status-box">
+                        <h1>Your Status:</h1>
+                        <h2 id="you">You are not available</h2>
+                        <!-- Status Form -->
+                        <form action="" name="status" id="statusselect">
+                            <select name="avail">
+                                <option selected disabled>-- Select Status --</option>
+                                <option value="available">Available</option>
+                                <option value="notavailable">Not available</option>
+                            </select>
+                            <select name="subject" id="subjectselect">
+                                <option selected disabled>-- Select Subject --</option>
+                                <option value="physics">Physics</option>
+                                <option value="cs">CS</option>
+                                <option value="english">English</option>
+                                <option value="math">Math</option>
+                                <option value="bio">Bio</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="shsat">SHSAT</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span>
+                                <input type="button" onclick="changeStatus(this.form)" value="Update &#xf164;"
+                                       name="button">
+                            </span>
+                        </form>
+                        <!-- End Status Form -->
+                    </div>
+                </div>
+                <!-- End Your Status -->
+
+                <!-- Tutor Status -->
+                <div class="col-md-6">
+                    <div class="status-box">
+                        <h1>Tutors Availability:</h1>
+                        <h2>View Available Tutors</h2>
+
+                        <!-- Status Form -->
+                        <form action="" name="status">
+                            <label>Select your subject to see available tutors.</label>
+                            <select name="subject">
+                                <option selected disabled>-- Select Subject --</option>
+                                <option value="physics">Physics</option>
+                                <option value="cs">Computer Science</option>
+                                <option value="english">English</option>
+                                <option value="math">Math</option>
+                                <option value="bio">Bio</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="shsat">SHSAT</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span>
+                                <input type="button" onclick="searchTutors(this.form)" value="Search &#xf00e;"
+                                       name="button">
+                            </span>
+                        </form>
+
+                        <!-- End Status Form -->
+                    </div>
+                </div>
+                <!-- End Tutor Status -->
+            </div>
+        </div>
+    </section>
+    <!-- ===== End Tutor Search ===== -->
+
+    <!-- ===== Start Available Tutor ===== -->
+    <section class="available-tutors">
+        <a name="availtutors"></a>
+        <div class="container">
+            <!-- Availbale Title -->
+            <div class="available-title">
+                <h1>Available Tutors:</h1>
+            </div>
+            <!-- End Availbale Title -->
+
+            <!-- Table Availbale Tutor -->
+            <table class="table" id="dataTables-example">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tutor Name</th>
+                    <th>Subject</th>
+                    <th>School</th>
+                    <th>Grade</th>
+
+                </tr>
+                </thead>
+                <tbody id="searchtutors">
+                <tr>
+                    <td>1</td>
+                    <td>Smalick</td>
+                    <td>Physics</td>
+                    <td>Stuyvesant</td>
+                    <td>12th</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>user</td>
+                    <td>subject</td>
+                    <td>school</td>
+                    <td>grade</td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- End Table Availbale Tutor -->
+        </div>
+    </section>
+    <!-- ===== End Available Tutor ===== -->
+</div>
+<div id="callconnectedscreen" style="display: none;">
+    <!-- ===== Start Video Screen ===== -->
+    <section class="video-screen" id="preview">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#screen1" aria-controls="screen1" role="tab"
+                                                      data-toggle="tab">Screen
+                1</a></li>
+            <li role="presentation"><a href="#screen2" aria-controls="screen2" role="tab" data-toggle="tab">Screen 2</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="screen1">
+                <img src="images/screen.png" alt="Screen Design" title="Screen Design"/>
+                <div class="view-screen" id="media-local"></div>
+                <button id="end" data-toggle="modal" data-target="#myModal">Switch Off <i class="fa fa-power-off"></i>
+                </button>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="screen2">
+                <img src="images/screen.png" alt="Screen Design" title="Screen Design"/>
+                <div class="view-screen" id="media-remote"></div>
+                <button id="endalso" data-toggle="modal" data-target="#myModal">Switch Off <i
+                        class="fa fa-power-off"></i>
+                </button>
+            </div>
+        </div>
+
+    </section>
+    <!-- ===== End Video Screen ===== -->
+
+    <!-- ===== Start Whiteboard ===== -->
+    <section class="whiteboard">
+        <div class="container">
+            <div style="width: 1200px; height: 400px;" id="aww-wrapper">
+                <!-- Element in which the whiteboard will be shown
+                          – modify style as needed -->
+            </div>
+
+            <script src="https://awwapp.com/static/widget/js/aww.min.js">
+            </script>
+        </div>
+    </section>
+    <!-- ===== End Whiteboard ===== -->
+</div>
+
+<!-- ===== Start Section Footer ===== -->
+<footer>
+    <div class="container">
+        <div class="copyrights">
+            <p>Copyright &copy; StudySwap 2016. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<audio id="ringtone" preload="auto" loop>
+    <source src="mp3/ringtone03.mp3" type="audio/mpeg">
+</audio>
+<audio id="callended" preload="auto">
+    <source src="mp3/callended01.mp3" type="audio/mpeg">
+</audio>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Give Ratings:</h4>
+            </div>
+            <!-- End Modal Header -->
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <p>Please give the ratings by clicking the stars given below.</p>
+
+                <div id="rankingdiv" class="rating">
+                    <span id="selected-rating" class="selected-rating"></span>
+                </div>
+
+                <p style="text-align: left;  margin-left: 12%;">Give Comment:</p>
+                <span>
+                    <textarea class="form-control col-xs-12" id="feedback"></textarea>
+                </span>
+            </div>
+
+            <!-- End Modal Body -->
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button id="done" type="button">Done <i class="fa fa-thumbs-up"></i></button>
+            </div>
+            <!-- End Modal Footer -->
+        </div>
+    </div>
+</div>
+
+<div id="modal-user-settings" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" style="margin-top: 200px;">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="row">
+                    <h1 class="modal-title" id="incoming" style=" font-size: 1.5em; margin-left: 15px;">
+                        <button type="button" class="close" data-dismiss="modal"
+                                style=" margin-right: 15px;">&times;</button>
+                    </h1>
+                </div>
+            </div>
+            <!-- END Modal Header -->
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="row">
+                            <fieldset id="incoming_call">
+                                <div class="col-xs-6" style="text-align: center;">
+                                    <input type="button" class="btn btn-alt btn-lg btn-success text-left"
+                                           value="Accept Call" id="invite-accept"/>
+                                </div>
+                                <div class="col-xs-6" style="text-align: center;">
+                                    <input type="button" class="btn btn-alt btn-lg btn-danger text-right"
+                                           value="Reject Call" id="invite-reject"/>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Modal Body -->
+    </div>
+</div>
+
+<!-- ===== End Section Footer ===== -->
+
+<!-- ===== Start Bootstrap core JavaScript ===== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/docs.min.js"></script>
+<script src="js/jquery.meanmenu.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/react-with-addons.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/literallycanvas.js"></script>
+<script src="js/jquery.dataTables.js"></script>
+<script src="js/dataTables.bootstrap.js"></script>
+<script src="js/custome.js"></script>
+<script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+<script src="https://media.twiliocdn.com/sdk/js/conversations/v0.13/twilio-conversations.min.js"></script>
+<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+<script src="js/twilio-agent.js"></script>
+<!--<script src="js/twilio-common.js"></script>-->
+<a href="javascript:void(0);" class="scrollup">Scroll to Top</a>
+<!-- ===== End Bootstrap core JavaScript ===== -->
+<script src="backend.js"></script>
+
+<script>
+    $(document).ready(function () {
+        removeQuestions();
+        //console.log("ready!");
+        $.ajax("getusername.php", {
+            type: 'POST',
+            success: function (response) {
+                // console.log("response --- " + response);
+                sessionStorage.setItem("response", response);
+
+                document.getElementById("username").innerHTML = response;
+                //yourFunction(response);
+                var name2 = response.replace(/(\r\n|\n|\r)/gm, " ");
+                var name3 = name2.replace(/ /g, '');
+                console.log("getname-- " + name3);
+                document.getElementById("username").value = name3;
+                document.getElementById("uname").value = name3;
+            }
+        });
+        $.ajax("getpoints.php", {
+            type: 'POST',
+            success: function (response) {
+                //console.log("points --- " + response);
+                document.getElementById("points").value = response;
+                document.getElementById("pointsval").value = response;
+                document.getElementById("points").innerHTML = response;
+            }
+        });
+        function removeQuestions() {
+            var available = 'notavailable';
+            //console.log("available-- "+available);
+            var subject = ''; //$('#subjectselect').val();
+            $.ajax("update.php", {
+                data: {subj: subject, isAvailable: available},
+                type: 'POST'
+            });
+        }
+
+        /*window.onbeforeunload = function (e) {
+            e = e || window.event;
+            // For IE and Firefox prior to version 4
+            if (e) {
+                e.returnValue = 'Are you sure you want to close the Tab?';
+            }
+            // For Safari
+            return 'Are you sure you want to close the Tab?';
+        };*/
+
+        $('#profile').click(function () {
+            var name = document.getElementById("uname").value;
+            var subject = $('#subjectselect').val();
+            location.href = "Profile.php?name=" + name;
+        });
+        $('#schedule').click(function () {
+            var name = document.getElementById("uname").value;
+            location.href = "schedule.php?name=" + name;
+        });
+        $('#cancel').click(function () {
+            location.reload();
+        });
+        $('select#one').change(function () {
+            var selType = $(this).find('option:selected').attr('appliesto');
+            $('select#two option[type="' + selType + '"]').prop('selected', true);
+
+            var priceval = document.getElementById("two").value;
+            var minval = document.getElementById("one").value;
+            //console.log("priceval --- " + priceval);
+            //console.log("minval --- " + minval);
+
+            document.getElementById("priceval").value = priceval;
+            document.getElementById("minval").value = minval;
+        });
+
+        $('#bypoints').click(function () {
+            $("#bydetail").show();
+            $("#showdetail").hide();
+            $("#callconnectedscreen").hide();
+        });
+    });
+
+</script>
+</body>
+</html>
